@@ -42,7 +42,7 @@ public class Patroler : Entity
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Hero")
+        if (collision.gameObject.tag == _tagHero)
         {
             GetDamage();
         }

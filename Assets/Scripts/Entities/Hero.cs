@@ -16,7 +16,10 @@ public class Hero : Entity
     private float _jumpForce = 0.5f;
     private bool _isGrounded;
 
-    Mover _mover;
+    private string _tagMonster = "Hero";
+    private string _tagMedKid = "Hero";
+
+    private Mover _mover;
 
     private void Awake()
     {
@@ -28,11 +31,11 @@ public class Hero : Entity
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Monster")
+        if (collision.gameObject.tag == _tagMonster)
         {
             GetDamage();
         }
-        else if (collision.gameObject.tag == "MedKid")
+        else if (collision.gameObject.tag == _tagMedKid)
         {
             Heal();
         }
