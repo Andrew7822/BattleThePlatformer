@@ -2,17 +2,17 @@ using UnityEngine;
 
 public class Collector : MonoBehaviour
 {
-    [SerializeField] private Hero _hero;
+    [SerializeField] private Life _life;
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.collider.TryGetComponent(out MedKid medKid))
         {
-            _hero.Heal();
+            _life.Heal();
         }
-        else if (collision.collider.TryGetComponent(out Patroler patroler))
+        else if (collision.collider.TryGetComponent(out Monster patroler))
         {
-            _hero.TakeDamage();
+            _life.TakeDamage();
         }
     }
 }

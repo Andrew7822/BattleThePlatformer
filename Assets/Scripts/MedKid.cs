@@ -2,11 +2,8 @@ using UnityEngine;
 
 public class MedKid : MonoBehaviour
 {
-    private void OnCollisionEnter2D(Collision2D collision)
+    public void Die()
     {
-        if (collision.collider.TryGetComponent(out Hero hero))
-        {
-            Destroy(gameObject);
-        }
+        Destroy(gameObject);
     }
 }

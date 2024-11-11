@@ -2,28 +2,35 @@ using UnityEngine;
 
 public class HeroMover : MonoBehaviour
 {
+    [SerializeField] private CheckGround _checkGround;
+    [SerializeField] private InputReader _inputReader;
+
     private readonly int _degreesRotation = 180;
 
-    public void Run(Transform transform, int speed, string Horizontal)
+    public void Run(Transform transform)
     {
-        if (Input.GetAxis(Horizontal) > 0)
+        int speed = 3;
+
+        if (_inputReader.HorizontalDirection > 0)
         {
             Flip(0, transform);
         }
 
-        if (Input.GetAxis(Horizontal) < 0)
+        if (_inputReader.HorizontalDirection < 0)
         {
             Flip(_degreesRotation, transform);
         }
 
-        Vector3 directionVector = Vector3.right * Input.GetAxisRaw(Horizontal);
+        Vector3 directionVector = Vector3.right * _inputReader.HorizontalRawDirection;
 
         transform.position = Vector3.MoveTowards(transform.position, transform.position + directionVector, speed * Time.deltaTime);
     }
 
-    public void Jump(Rigidbody2D rigidbody2D, Transform transform, float jumpForce, bool isGrounded)
+    public void Jump(Rigidbody2D rigidbody2D, Transform transform)
     {
-        if (isGrounded)
+        float jumpForce = 8;
+
+        if (_checkGround.ExploreGround())
         {
             rigidbody2D.AddForce(transform.up * jumpForce, ForceMode2D.Impulse);
         }
