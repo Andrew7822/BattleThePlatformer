@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class Animators
 {
-
     public Animators(Animator animator)
     {
         _animator = animator;
@@ -14,7 +13,6 @@ public class Animators
 
     private States State
     {
-        get { return (States)_animator.GetInteger(_nameState); }
         set { _animator.SetInteger(_nameState, (int)value); }
     }
 
