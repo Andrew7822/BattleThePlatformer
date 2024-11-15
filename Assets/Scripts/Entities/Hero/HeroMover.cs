@@ -4,6 +4,7 @@ public class HeroMover : MonoBehaviour
 {
     [SerializeField] private CheckGround _checkGround;
     [SerializeField] private InputReader _inputReader;
+    [SerializeField] private Transform _transformRenderer;
 
     private readonly int _degreesRotation = 180;
 
@@ -13,12 +14,12 @@ public class HeroMover : MonoBehaviour
 
         if (_inputReader.HorizontalDirection > 0)
         {
-            Flip(0, transform);
+            Flip(0, _transformRenderer);
         }
 
         if (_inputReader.HorizontalDirection < 0)
         {
-            Flip(_degreesRotation, transform);
+            Flip(_degreesRotation, _transformRenderer);
         }
 
         Vector3 directionVector = Vector3.right * _inputReader.HorizontalRawDirection;

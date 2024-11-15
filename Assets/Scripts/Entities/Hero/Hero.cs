@@ -12,7 +12,7 @@ public class Hero : MonoBehaviour
 
     private void Awake()
     {
-        _animator = GetComponent<Animator>();
+        _animator = GetComponentInChildren<Animator>();
         _rigidbody2D = GetComponent<Rigidbody2D>();
         _animators = new Animators(_animator);
         _mover = GetComponent<HeroMover>();

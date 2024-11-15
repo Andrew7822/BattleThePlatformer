@@ -2,14 +2,14 @@ using UnityEngine;
 
 public class Animators
 {
+    public Animator _animator { get; private set; }
+
+    private string _nameState = "State";
+
     public Animators(Animator animator)
     {
         _animator = animator;
     }
-
-    public Animator _animator { get; private set; }
-
-    private string _nameState = "State";
 
     private States State
     {

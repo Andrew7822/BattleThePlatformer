@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class EnaibleState : MonoBehaviour
+public class EnableState : MonoBehaviour
 {
     [SerializeField] private ProtectedPoint _protectedPoint;
     [SerializeField] private PatrollerFolowing _patrollerFolowing;

@@ -4,6 +4,7 @@ public class MonsterMover : MonoBehaviour
 {
     [SerializeField] private float _speed;
     [SerializeField] private Transform _pointsContainer;
+    [SerializeField] private Transform _transformRenderer;
 
     private int _nextPlace;
     private Transform[] _points;
@@ -35,6 +36,6 @@ public class MonsterMover : MonoBehaviour
         _nextPlace = ++_nextPlace % _points.Length;
 
         Vector3 moveDerection = _points[_nextPlace].transform.position;
-        transform.right = moveDerection - transform.position;
+        _transformRenderer.right = moveDerection - transform.position;
     }
 }

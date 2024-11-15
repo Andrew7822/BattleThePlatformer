@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Monster : MonoBehaviour
 {
-    [SerializeField] private LifeMonster _lifeMonster;
+    [SerializeField] private HealthHero _lifeMonster;
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
